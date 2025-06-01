@@ -113,6 +113,13 @@ So with this is mind, it is necessary to outline some guidelines for disposers:
    is often an anti-pattern. Disposal in an exception context should always
    be synchronous and immediate. Avoiding async disposal is not always possible,
    however, as some types of disposable objects require asynchronous cleanup.
+6. Asynchronous disposers, by definition, are able to yield to other tasks
+   while waiting for their disposal task(s) to complete. This means that, as a
+   minimum, a `Symbol.asyncDispose` method must be an `async` function, and
+   must `await` at least one asynchronous disposal task. If either of these
+   criteria is not met, then the disposer is actually a synchronous disposer in
+   disguise, and will block the execution thread until it returns; such a
+   disposer should instead be declared using `Symbol.dispose`.
 
 ### Example Disposable Object
 
