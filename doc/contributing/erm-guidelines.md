@@ -250,6 +250,11 @@ when introducing ERM capabilities into existing APIs:
    and confusion of polymorphic return values.
 3. If adding a new API variant is not ideal, remember that changing the
    return type of an existing API is a breaking change.
+4. When an existing API signature does not lend itself easily to supporting making
+    the return value disposable and a new API needs to be introduced, it is worth
+    considering whether the existing API should be deprecated in favor of the new.
+    Deprecation is never a decision to be taken lightly, however, as it can have major
+    ecosystem impact.
 
 ## Guidelines for using disposable objects
 
