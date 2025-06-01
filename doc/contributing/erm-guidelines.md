@@ -111,7 +111,8 @@ So with this is mind, it is necessary to outline some guidelines for disposers:
    lead delaying the handling of exceptions and can make it difficult to
    reason about the state of the object while the disposal is in progress and
    is often an anti-pattern. Disposal in an exception context should always
-   be synchronous and immediate.
+   be synchronous and immediate. Avoiding async disposal is not always possible,
+   however, as some types of disposable objects require asynchronous cleanup.
 
 ### Example Disposable Object
 
