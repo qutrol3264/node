@@ -1,7 +1,7 @@
 # Explicit Resource Management (ERM) Guidelines
 
 Explicit Resource Management is a capability that was introduced to the JavaScript
-langauge in 2025. It provides a way of marking objects as disposable resources such
+language in 2025. It provides a way of marking objects as disposable resources such
 that the JavaScript engine will automatically invoke disposal methods when the
 object is no longer in scope. For example:
 
