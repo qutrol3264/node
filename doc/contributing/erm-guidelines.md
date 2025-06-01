@@ -293,6 +293,13 @@ function foo() {
 }
 ```
 
+This is because of the fact that, when the disposer is called, it has no way
+of knowing if there is a pending exception or not and it is generally safest
+to assume that it is being called in an exceptional state. While some types
+of disposable objects make no differentiation between dispose in success
+and dispose in exception cases, those that do otherwise have no way of
+differentiating the conditions from within the disposer itself.
+
 3. Remember that disposers are invoked in a stack, in the reverse order
    in which there were created. For example,
 
