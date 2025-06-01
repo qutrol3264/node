@@ -47,7 +47,9 @@ class MyResource {
 An object that implements `Symbol.dispose` can be used with the `using`
 statement, which will automatically call the `Symbol.dispose` method when the
 object goes out of scope. If an object implements `Symbol.asyncDispose`, it can
-be used with the `await using` statement in an asynchronous context.
+be used with the `await using` statement in an asynchronous context. It is
+worth noting here that `await using` means the disposal is asynchronous,
+not the initialization.
 
 ```mjs
 {
